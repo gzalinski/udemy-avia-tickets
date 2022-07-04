@@ -27,4 +27,4 @@ class Locations {
 
 const locations = new Locations(api)
 
-export default locations;
+export default locations; 
