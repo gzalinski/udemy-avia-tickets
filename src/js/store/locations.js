@@ -18,6 +18,7 @@ class Locations {
         this.countries = this.serializeCountries(countries);
         this.cities = cities;
         this.cities = this.serializeCities(cities);
+        this.shortCities = this.createShortCities(this.cities);
 
         return response;
     }
@@ -41,6 +42,13 @@ class Locations {
             ...city,
             country_name,
           };
+          return acc;
+        }, {});
+    }
+
+    createShortCities(cities) {
+        return Object.entries(cities).reduce((acc, [key]) => {
+          acc[key] = null;
           return acc;
         }, {});
     }
