@@ -25,7 +25,10 @@ class Locations {
     }
 
 
-
+    getCityCodeByKey(key) {
+        return this.cities[key].code;
+    }
+    
     getCitiesByCountryCode(code){
         return this.cities.filter( city => city.country_code === code)
     }
