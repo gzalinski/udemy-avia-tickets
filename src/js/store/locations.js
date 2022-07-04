@@ -5,6 +5,7 @@ class Locations {
         this.api = api;
         this.countries = null;
         this.cities = null;
+        this.shortCities = null;
     }
 
     async init(){
