@@ -29,11 +29,11 @@ class FormUI {
     }
 
     get departDateValue() {
-        return this.depart.toString();
+        return this.depart.value.toString();
     }
 
     get returnDateValue() {
-        return this.return.toString();
+        return this.return.value.toString();
     }
     
     setAutocompleteData(data) {
