@@ -15,6 +15,7 @@ class Locations {
 
         const [countries, cities] = response;
         this.countries = countries;
+        this.countries = this.serializeCountries(countries);
         this.cities = cities;
 
         return response;
@@ -22,6 +23,13 @@ class Locations {
 
     getCitiesByCountryCode(code){
         return this.cities.filter( city => city.country_code === code)
+    }
+
+    serializeCountries(countries) {
+        return countries.reduce((acc, country) => {
+          acc[country.code] = country;
+          return acc;
+        }, {});
     }
 }
 
