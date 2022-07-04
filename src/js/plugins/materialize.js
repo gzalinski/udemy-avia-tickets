@@ -23,3 +23,13 @@ M.Autocomplete.init(autocomplete, {
 export function getAutocompleteInstance(el){
     return M.Autocomplete.getInstance(el)
 }
+
+//Init picker
+const datepickers = document.querySelectorAll('.datepicker');
+M.Datepicker.init(datepickers, {
+    showClearBtn: true,
+})
+
+export function getDatePickerInstance(el){
+    return M.Datepicker.getInstance(el)
+} 
