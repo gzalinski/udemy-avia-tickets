@@ -17,6 +17,7 @@ class Locations {
         this.countries = countries;
         this.countries = this.serializeCountries(countries);
         this.cities = cities;
+        this.cities = this.serializeCities(cities);
 
         return response;
     }
@@ -31,6 +32,19 @@ class Locations {
           return acc;
         }, {});
     }
+
+    serializeCities(cities) {
+        return cities.reduce((acc, city) => {
+          const country_name = this.countries[city.country_code].name;
+          const key = `${city.name},${country_name}`;
+          acc[key] = {
+            ...city,
+            country_name,
+          };
+          return acc;
+        }, {});
+    }
+
 }
 
 const locations = new Locations(api)
