@@ -36,7 +36,11 @@ class FormUI {
         return this.return.toString();
     }
     
-  
+    setAutocompleteData(data) {
+        this.originAutocomplete.updateData(data);
+        this.destinationAutocomplete.updateData(data);
+    }
+    
   }
   
   const formUI = new FormUI(getAutocompleteInstance, getDatePickerInstance);
