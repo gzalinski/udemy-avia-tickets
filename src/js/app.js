@@ -27,11 +27,10 @@ document.addEventListener('DOMContentLoaded', e => {
     const origin = locations.getCityCodeByKey(formUI.originValue);
     const destination = locations.getCityCodeByKey(formUI.destinationValue);
     const depart_date = formUI.departDateValue;
-    const return_date = formUI.returnDateValue;
+    const return_date = formUI.returnDateValue ?? null;
     const currency = currencyUI.currecyValue;
 
-    console.log(origin,destination, depart_date, return_date, currency);
-
+  
     await locations.fetchTickets({
       origin,
       destination,
