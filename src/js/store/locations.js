@@ -1,14 +1,17 @@
 import api from '../services/apiService';
+import {formatDate} from '../helpers/date' 
+import { th } from 'date-fns/locale';
 
 class Locations {
 
-  constructor(api) {
+  constructor(api, helpers) {
     this.api = api;
     this.countries = null;
     this.cities = null;
     this.shortCities = {};
     this.lastSearch = {};
     this.airlines = {};
+    this.formatDate = helpers.formatDate;
   }
 
   async init() {
@@ -95,13 +98,15 @@ class Locations {
         origin_name: this.getCityNameByCode(ticket.origin),
         destination_name: this.getCityNameByCode(ticket.destination),
         airline_logo: this.getAirlineLogoByCode(ticket.airline),
-        airline_name: this.getAirlineNameByCode(ticket.airline)
+        airline_name: this.getAirlineNameByCode(ticket.airline),
+        departure_at: this.formatDate(ticket.departure_at, 'dd MMM yyyy hh:mm'),
+        return_at: this.formatDate(ticket.return_at, 'dd MMM yyyy hh:mm'),
       }
     })
   }
   
 }
 
-const locations = new Locations(api);
+const locations = new Locations(api, {formatDate});
 
 export default locations;
