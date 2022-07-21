@@ -34,3 +34,8 @@ M.Datepicker.init(datepickers, {
 export function getDatePickerInstance(el){
     return M.Datepicker.getInstance(el)
 } 
+
+
+//init tooltip
+const elems = document.querySelectorAll('.tooltipped');
+M.Tooltip.init(elems, {});
